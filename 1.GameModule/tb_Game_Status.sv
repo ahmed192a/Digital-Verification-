@@ -73,7 +73,7 @@ module Game_State_testbench  #(
         // Senario 2: set initial value to 1
         // Senario 3: set initial value to 15
         //===========================================
-        // For Control Signal = 1 (Count down by 1)
+        // For Control Signal = 2 (Count down by 1)
         // Senario 4: set initial value to 0
         // Senario 5: set initial value to 1
         // Senario 6: set initial value to 15
@@ -97,7 +97,7 @@ module Game_State_testbench  #(
 
  
         //===========================================
-        // For Control Signal = 2 (Count up by 2)
+        // For Control Signal = 1 (Count up by 2)
         // Senario 7: set initial value to 0
         // Senario 8: set initial value to 1
         // Senario 9: set initial value to 2

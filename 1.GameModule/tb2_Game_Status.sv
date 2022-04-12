@@ -66,65 +66,244 @@ module Game_State_testbench  #(
         Senario_NUM = 0;            // initialize senario number
         clk = 1;                    // start the clock
 
+    //=====================================================
+    // Senario 1:
+    // Initialize counter with 0
+    // Count up by 1
+    //=====================================================
+    rst_l = 1;
+    control = 0;
+    i_value = 0;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1;
 
-        //===========================================
-        // For Control Signal = 0 (Count up by 1)
-        // Senario 1: set initial value to 0
-        // Senario 2: set initial value to 1
-        // Senario 3: set initial value to 15
-        //===========================================
-        // For Control Signal = 1 (Count down by 1)
-        // Senario 4: set initial value to 0
-        // Senario 5: set initial value to 1
-        // Senario 6: set initial value to 15
-        //===========================================
-        for (int cont = 0; cont < 3; cont = cont + 2) begin
-            for (int i_v = 0; i_v < 3; i_v = i_v + 1) begin
-                rst_l = 1;                  // reset all registers
-                control = cont;             // set control signal
-                if(i_v == 2) i_value = 15;  // set initial value to 15
-                else i_value = i_v;         // set initial value to 0 or 1
-                INIT = 0;                   // release initialization signal
-                #1                          // wait for one clock cycle
-                rst_l = 0;                  // release reset
-                INIT = 1;                   // set initialization signal
-                #2                          // wait for two clock cycles
-                INIT = 0;                   // release initialization signal
-                #481                        // wait for 481 clock cycles
-                rst_l = 1;                  // reset all registers
-            end
-        end
 
- 
-        //===========================================
-        // For Control Signal = 2 (Count up by 2)
-        // Senario 7: set initial value to 0
-        // Senario 8: set initial value to 1
-        // Senario 9: set initial value to 2
-        // Senario 10: set initial value to 15
-        //===========================================
-        // For Control Signal = 3 (Count down by 2)
-        // Senario 11: set initial value to 0
-        // Senario 12: set initial value to 1
-        // Senario 13: set initial value to 2
-        // Senario 14: set initial value to 15
-        //===========================================
-        for (int cont = 1; cont < 4; cont = cont + 2) begin
-            for (int i_v = 0; i_v < 4; i_v = i_v + 1) begin
-                rst_l = 1;                      // reset all registers
-                control = cont;                 // set control signal
-                if(i_v == 3) i_value = 15;      // set initial value to 15
-                else i_value = i_v;             // set initial value to 0, 1, or 2
-                INIT = 0;                       // release initialization signal
-                #1                              // wait for one clock cycle
-                rst_l = 0;                      // release reset
-                INIT = 1;                       // set initialization signal
-                #2                              // wait for two clock cycles
-                INIT = 0;                       // release initialization signal
-                #251                            // wait for 251 clock cycles
-                rst_l = 1;                      // reset all registers
-            end
-        end
+    //=====================================================
+    // Senario 2:
+    // Initialize counter with 0
+    // Count up by 1
+    //=====================================================
+    rst_l = 1;
+    control = 0;
+    i_value = 1;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1;
+
+    //=====================================================
+    // Senario 3:
+    // Initialize counter with 15
+    // Count up by 1
+    //=====================================================
+    rst_l = 1;
+    control = 0;
+    i_value = 15;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1;  
+
+
+    //=====================================================
+    // Senario 4:
+    // Initialize counter with 0
+    // Count down by 0
+    //=====================================================
+    rst_l = 1;
+    control = 2;
+    i_value = 0;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1;
+
+    //=====================================================
+    // Senario 5:
+    // Initialize counter with 1
+    // Count down by 1
+    //=====================================================
+    rst_l = 1;
+    control = 2;
+    i_value = 1;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1;  
+
+    //=====================================================
+    // Senario 6:
+    // Initialize counter with 15
+    // Count down by 1
+    //=====================================================
+    rst_l = 1;
+    control = 2;
+    i_value = 15;
+    INIT = 0;
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #481
+    rst_l = 1; 
+
+    //=====================================================
+    // Senario 7:
+    // Initialize counter with 0
+    // Count up by 2
+    //=====================================================
+    rst_l = 1;
+    control = 1;
+    i_value = 0;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+    
+    //=====================================================
+    // Senario 8:
+    // Initialize counter with 1
+    // Count up by 2
+    //=====================================================
+    rst_l = 1;
+    control = 1;
+    i_value = 1;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+    
+    //=====================================================
+    // Senario 9:
+    // Initialize counter with 2
+    // Count up by 2
+    //=====================================================
+    rst_l = 1;
+    control = 1;
+    i_value = 1;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+
+    //=====================================================
+    // Senario 10:
+    // Initialize counter with 15
+    // Count up by 2
+    //=====================================================
+    rst_l = 1;
+    control = 1;
+    i_value = 15;
+    INIT = 0; 
+    #1  
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+
+    //=====================================================
+    // Senario 11:
+    // Initialize counter with 0
+    // Count down by 2
+    //=====================================================
+    rst_l = 1;
+    control = 3;
+    i_value = 0;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+    
+    //=====================================================
+    // Senario 12:
+    // Initialize counter with 1
+    // Count down by 2
+    //=====================================================
+    rst_l = 1;
+    control = 3;
+    i_value = 1;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+    
+    //=====================================================
+    // Senario 13:
+    // Initialize counter with 2
+    // Count down by 2
+    //=====================================================
+    rst_l = 1;
+    control = 3;
+    i_value = 1;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #2
+    INIT = 0;
+    #251
+    rst_l = 1;
+    
+    //=====================================================
+    // Senario 14:
+    // Initialize counter with 15
+    // Count down by 2
+    //=====================================================
+    rst_l = 1;
+    control = 3;
+    i_value = 15;
+    INIT = 0; 
+    #1
+    rst_l = 0;
+    INIT = 1;
+    #251
+    rst_l = 1;
+        
     end
 
 

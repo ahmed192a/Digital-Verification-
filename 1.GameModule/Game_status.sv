@@ -17,8 +17,8 @@
 //      4 bit Muliti-mode counter module
 //      With Control signal to change the mode
 //          00 count up by 1
-//          01 count down by 1
-//          10 count up by 2
+//          01 count up by 2
+//          10 count down by 1
 //          11 count down by 2   
 //  Input: clk, reset, Init, load, control
 //  Output: count_reg
@@ -35,7 +35,7 @@ module counter(
     input reset,                    // reset    
     input Init,                     // initialize   (1: initialize, 0: normal operation) 
     input [3:0] load,               // load value  (for counter initialization) 
-    input [1:0] control             // control     (0: count up by 1, 1: count down by 1, 2: count up by 2, 3: count down by 2)
+    input [1:0] control             // control     (0: count up by 1, 1: count up by 2, 2: count down by 1, 3: count down by 2)
     );
 
   always @(posedge clk) begin
@@ -129,6 +129,7 @@ module Game_State#(
             win = 0;                    // release Winner signal
             wins = 0;                   // reset Winner counter
             losses = 0;                 // reset Loser counter
+            gameover <= 0;              // release Gameover signal
         end
         // Normal Operation
         else begin
