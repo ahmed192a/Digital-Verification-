@@ -78,7 +78,7 @@ module Game_State_testbench  #(
         // Senario 5: set initial value to 1
         // Senario 6: set initial value to 15
         //===========================================
-        for (int cont = 0; cont < 2; cont = cont + 1) begin
+        for (int cont = 0; cont < 3; cont = cont + 2) begin
             for (int i_v = 0; i_v < 3; i_v = i_v + 1) begin
                 rst_l = 1;                  // reset all registers
                 control = cont;             // set control signal
@@ -109,7 +109,7 @@ module Game_State_testbench  #(
         // Senario 13: set initial value to 2
         // Senario 14: set initial value to 15
         //===========================================
-        for (int cont = 2; cont < 4; cont = cont + 1) begin
+        for (int cont = 1; cont < 4; cont = cont + 2) begin
             for (int i_v = 0; i_v < 4; i_v = i_v + 1) begin
                 rst_l = 1;                      // reset all registers
                 control = cont;                 // set control signal

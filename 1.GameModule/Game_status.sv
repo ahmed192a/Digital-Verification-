@@ -17,8 +17,8 @@
 //      4 bit Muliti-mode counter module
 //      With Control signal to change the mode
 //          00 count up by 1
-//          01 count up by 2
-//          10 count down by 1
+//          01 count down by 1
+//          10 count up by 2
 //          11 count down by 2   
 //  Input: clk, reset, Init, load, control
 //  Output: count_reg
@@ -54,8 +54,8 @@ module counter(
         else begin
             case(control)                         // Check the Control signal
             2'b00: count_reg = count_reg + 1;     //  00 count up by 1
-            2'b01: count_reg = count_reg - 1;     //  01 count down by 1
-            2'b10: count_reg = count_reg + 2;     //  10 count up by 2
+            2'b01: count_reg = count_reg + 2;     //  01 count up by 2
+            2'b10: count_reg = count_reg - 1;     //  10 count down by 1
             2'b11: count_reg = count_reg - 2;     //  11 count down by 2
             endcase
         end
