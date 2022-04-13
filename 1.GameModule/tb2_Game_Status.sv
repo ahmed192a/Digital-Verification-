@@ -35,7 +35,7 @@ module Game_State_testbench  #(
     //==================
     // Local Variables
     //==================
-    int Senario_NUM;                        // number of senarios
+    int Scenario_NUM;                        // number of scenarios
 
     //==============================
     // Instantiate the game module
@@ -63,11 +63,11 @@ module Game_State_testbench  #(
     // Initial Block of Testbench
     //==============================
     initial begin
-        Senario_NUM = 0;            // initialize senario number
+        Scenario_NUM = 0;            // initialize scenario number
         clk = 1;                    // start the clock
 
     //=====================================================
-    // Senario 1:
+    // Scenario 1:
     // Initialize counter with 0
     // Count up by 1
     //=====================================================
@@ -85,7 +85,7 @@ module Game_State_testbench  #(
 
 
     //=====================================================
-    // Senario 2:
+    // Scenario 2:
     // Initialize counter with 0
     // Count up by 1
     //=====================================================
@@ -102,7 +102,7 @@ module Game_State_testbench  #(
     rst_l = 1;
 
     //=====================================================
-    // Senario 3:
+    // Scenario 3:
     // Initialize counter with 15
     // Count up by 1
     //=====================================================
@@ -120,7 +120,7 @@ module Game_State_testbench  #(
 
 
     //=====================================================
-    // Senario 4:
+    // Scenario 4:
     // Initialize counter with 0
     // Count down by 0
     //=====================================================
@@ -137,7 +137,7 @@ module Game_State_testbench  #(
     rst_l = 1;
 
     //=====================================================
-    // Senario 5:
+    // Scenario 5:
     // Initialize counter with 1
     // Count down by 1
     //=====================================================
@@ -154,7 +154,7 @@ module Game_State_testbench  #(
     rst_l = 1;  
 
     //=====================================================
-    // Senario 6:
+    // Scenario 6:
     // Initialize counter with 15
     // Count down by 1
     //=====================================================
@@ -171,7 +171,7 @@ module Game_State_testbench  #(
     rst_l = 1; 
 
     //=====================================================
-    // Senario 7:
+    // Scenario 7:
     // Initialize counter with 0
     // Count up by 2
     //=====================================================
@@ -188,7 +188,7 @@ module Game_State_testbench  #(
     rst_l = 1;
     
     //=====================================================
-    // Senario 8:
+    // Scenario 8:
     // Initialize counter with 1
     // Count up by 2
     //=====================================================
@@ -205,7 +205,7 @@ module Game_State_testbench  #(
     rst_l = 1;
     
     //=====================================================
-    // Senario 9:
+    // Scenario 9:
     // Initialize counter with 2
     // Count up by 2
     //=====================================================
@@ -222,7 +222,7 @@ module Game_State_testbench  #(
     rst_l = 1;
 
     //=====================================================
-    // Senario 10:
+    // Scenario 10:
     // Initialize counter with 15
     // Count up by 2
     //=====================================================
@@ -239,7 +239,7 @@ module Game_State_testbench  #(
     rst_l = 1;
 
     //=====================================================
-    // Senario 11:
+    // Scenario 11:
     // Initialize counter with 0
     // Count down by 2
     //=====================================================
@@ -256,7 +256,7 @@ module Game_State_testbench  #(
     rst_l = 1;
     
     //=====================================================
-    // Senario 12:
+    // Scenario 12:
     // Initialize counter with 1
     // Count down by 2
     //=====================================================
@@ -273,7 +273,7 @@ module Game_State_testbench  #(
     rst_l = 1;
     
     //=====================================================
-    // Senario 13:
+    // Scenario 13:
     // Initialize counter with 2
     // Count down by 2
     //=====================================================
@@ -290,7 +290,7 @@ module Game_State_testbench  #(
     rst_l = 1;
     
     //=====================================================
-    // Senario 14:
+    // Scenario 14:
     // Initialize counter with 15
     // Count down by 2
     //=====================================================
@@ -317,13 +317,13 @@ module Game_State_testbench  #(
     end
 
     //=============================================
-    // Print Outputs for Each Senario
+    // Print Outputs for Each Scenario
     //=============================================
     always@(posedge gameover)begin
         if(who == 2)
-            $display("Senario Num = %0d -------WINNER", Senario_NUM);
+            $display("Scenario Num = %0d -------WINNER", Scenario_NUM);
         else
-            $display("Senario Num = %0d -------LOSER", Senario_NUM);
-        Senario_NUM = Senario_NUM +1;
+            $display("Scenario Num = %0d -------LOSER", Scenario_NUM);
+        Scenario_NUM = Scenario_NUM +1;
   end
 endmodule

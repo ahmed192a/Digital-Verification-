@@ -35,7 +35,7 @@ module Game_State_testbench  #(
     //==================
     // Local Variables
     //==================
-    int Senario_NUM;                        // number of senarios
+    int Scenario_NUM;                        // number of scenarios
 
     //==============================
     // Instantiate the game module
@@ -63,20 +63,20 @@ module Game_State_testbench  #(
     // Initial Block of Testbench
     //==============================
     initial begin
-        Senario_NUM = 0;            // initialize senario number
+        Scenario_NUM = 0;            // initialize scenario number
         clk = 1;                    // start the clock
 
 
         //===========================================
         // For Control Signal = 0 (Count up by 1)
-        // Senario 1: set initial value to 0
-        // Senario 2: set initial value to 1
-        // Senario 3: set initial value to 15
+        // Scenario 1: set initial value to 0
+        // Scenario 2: set initial value to 1
+        // Scenario 3: set initial value to 15
         //===========================================
         // For Control Signal = 2 (Count down by 1)
-        // Senario 4: set initial value to 0
-        // Senario 5: set initial value to 1
-        // Senario 6: set initial value to 15
+        // Scenario 4: set initial value to 0
+        // Scenario 5: set initial value to 1
+        // Scenario 6: set initial value to 15
         //===========================================
         for (int cont = 0; cont < 3; cont = cont + 2) begin
             for (int i_v = 0; i_v < 3; i_v = i_v + 1) begin
@@ -98,16 +98,16 @@ module Game_State_testbench  #(
  
         //===========================================
         // For Control Signal = 1 (Count up by 2)
-        // Senario 7: set initial value to 0
-        // Senario 8: set initial value to 1
-        // Senario 9: set initial value to 2
-        // Senario 10: set initial value to 15
+        // Scenario 7: set initial value to 0
+        // Scenario 8: set initial value to 1
+        // Scenario 9: set initial value to 2
+        // Scenario 10: set initial value to 15
         //===========================================
         // For Control Signal = 3 (Count down by 2)
-        // Senario 11: set initial value to 0
-        // Senario 12: set initial value to 1
-        // Senario 13: set initial value to 2
-        // Senario 14: set initial value to 15
+        // Scenario 11: set initial value to 0
+        // Scenario 12: set initial value to 1
+        // Scenario 13: set initial value to 2
+        // Scenario 14: set initial value to 15
         //===========================================
         for (int cont = 1; cont < 4; cont = cont + 2) begin
             for (int i_v = 0; i_v < 4; i_v = i_v + 1) begin
@@ -138,13 +138,13 @@ module Game_State_testbench  #(
     end
 
     //=============================================
-    // Print Outputs for Each Senario
+    // Print Outputs for Each Scenario
     //=============================================
     always@(posedge gameover)begin
         if(who == 2)
-            $display("Senario Num = %0d -------WINNER", Senario_NUM);
+            $display("Scenario Num = %0d -------WINNER", Scenario_NUM);
         else
-            $display("Senario Num = %0d -------LOSER", Senario_NUM);
-        Senario_NUM = Senario_NUM +1;
+            $display("Scenario Num = %0d -------LOSER", Scenario_NUM);
+        Scenario_NUM = Scenario_NUM +1;
   end
 endmodule
