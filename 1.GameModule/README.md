@@ -20,23 +20,23 @@ WHO starts at 2’b00 and return to it after each game over. Then synchronously 
 
 ## Test Scenarios ![Actions Status](https://img.shields.io/badge/coverage-100-green)
 * Control Signal = 0 (Count up by 1)<br>
-  * Senario 1: set initial value to 0
-  * Senario 2: set initial value to 1
-  * Senario 3: set initial value to 15
+  * Scenario 1: set initial value to 0
+  * Scenario 2: set initial value to 1
+  * Scenario 3: set initial value to 15
 
 * Control Signal = 2 (Count down by 1)
-  * Senario 4: set initial value to 0 
-  * Senario 5: set initial value to 1
-  * Senario 6: set initial value to 15
+  * Scenario 4: set initial value to 0 
+  * Scenario 5: set initial value to 1
+  * Scenario 6: set initial value to 15
   
 * Control Signal = 1 (Count up by 2)
-  * Senario 7: set initial value to 0
-  * Senario 8: set initial value to 1
-  * Senario 9: set initial value to 2
-  * Senario 10: set initial value to 15
+  * Scenario 7: set initial value to 0
+  * Scenario 8: set initial value to 1
+  * Scenario 9: set initial value to 2
+  * Scenario 10: set initial value to 15
   
 * Control Signal = 3 (Count down by 2)
-  * Senario 11: set initial value to 0
-  * Senario 12: set initial value to 1
-  * Senario 13: set initial value to 2
-  * Senario 14: set initial value to 15
+  * Scenario 11: set initial value to 0
+  * Scenario 12: set initial value to 1
+  * Scenario 13: set initial value to 2
+  * Scenario 14: set initial value to 15
