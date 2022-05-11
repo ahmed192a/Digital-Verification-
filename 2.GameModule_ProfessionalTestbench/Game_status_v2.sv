@@ -3,32 +3,26 @@ interface Game_Interface #(
     )(
     input bit clk
     );
-
     bit [1:0] who, control;
     bit los, win, gameover, reset, INIT;
     bit [COUNTER_SIZE-1:0] i_value;
-
-    clocking cb @(posedge clk);
+    clocking cb @(posedge clk);     // Clocking block
         default input #0ns output #1ns;
         output reset, control, INIT, i_value;
         input who, los, win, gameover;
     endclocking
 
-
-
-
-    modport dut
+    modport dut     // Port for Device under the Test
     (
         output gameover, who, los, win,
         input clk, reset, control, INIT, i_value
     );
     
-    modport tb
+    modport tb      // Port for Testbench
     (
         clocking cb,
         output reset
-    );
-    
+    ); 
 endinterface
 
 
@@ -58,7 +52,6 @@ module counter(
     input [3:0] load,               // load value  (for counter initialization) 
     input [1:0] control             // control     (0: count up by 1, 1: count up by 2, 2: count down by 1, 3: count down by 2)
     );
-
   always @(posedge clk) begin
     if (reset) begin
       count_reg <= 0;                            // reset counter
@@ -98,24 +91,19 @@ module Game_State#(
     )(
     Game_Interface.dut Signals
     );
-
     //==============================
     // Signals
     //==============================
-    wire start_over = Signals.reset | Signals.gameover; // start over signal     (1: start over and reset all reg and modules, 0: normal operation)
-
+    wire start_over = Signals.reset | Signals.gameover; // start over signal     
     //==============================
     // Local registers
     //==============================
     reg [COUNTER_SIZE-1:0] count_reg;   // counter register (read-only)
     reg [3:0]wins, losses;              // winner and loser counters   
-
     //==============================
     // Instantiate Counter module
     //==============================
     counter c1(.clk(Signals.clk), .reset(start_over), .Init(Signals.INIT), .load(Signals.i_value), .control(Signals.control), .count_reg(count_reg));
-
-
 
     always@(posedge Signals.clk) begin
         // Reset Block

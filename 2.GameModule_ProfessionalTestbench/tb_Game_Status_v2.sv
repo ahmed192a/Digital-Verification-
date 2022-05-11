@@ -7,8 +7,6 @@ module top (output bit clk);
     Game_Interface inter(.clk(clk));
     Game_State_testbench u0(.Signals(inter.tb));
     Game_State u1(.Signals(inter.dut));
-
-
     //=============================================
     // Dump variables to view them in the waveform
     //=============================================
@@ -17,7 +15,6 @@ module top (output bit clk);
         $dumpvars;
         #5000 $finish;
     end
-
 endmodule
 
 
@@ -36,7 +33,6 @@ program Game_State_testbench (
     // Initial Block of Testbench
     //==============================
     initial begin
-
         //===========================================
         // For Control Signal = 0 (Count up by 1)
         // Scenario 1: set initial value to 0
@@ -66,9 +62,6 @@ program Game_State_testbench (
                 Signals.cb.reset <= 1;                   // reset all registers
             end
         end
-
-
- 
         //===========================================
         // For Control Signal = 1 (Count up by 2)
         // Scenario 7: set initial value to 0
@@ -102,17 +95,12 @@ program Game_State_testbench (
         end
         #20;
     end
-
-
-
-
     //===========================
     // Properties
     //===========================
     property signals_cleared;
       @(Signals.cb) disable iff(!($fell(Signals.reset) )) (who==0 || los ==0 || gameover ==0 || win ==0);
     endproperty
-
 
     property winner_checker;
       @(Signals.cb)
@@ -124,8 +112,6 @@ program Game_State_testbench (
     //===========================
     assert_winner_checker: assert property(winner_checker)$display("[%0t] ----- Assertion GameOver passed", $time);
     assert_signals_cleared: assert property (signals_cleared) $display("[%0t] ----- Assertion Reseting_signals passed", $time);
-
-
 endprogram
 
           
